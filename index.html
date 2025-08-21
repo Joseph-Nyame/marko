@@ -99,6 +99,11 @@
             color: #fff;
         }
         
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        
         nav ul {
             display: flex;
             list-style: none;
@@ -117,6 +122,18 @@
         }
         
         nav ul li a:hover {
+            color: #D4AF37;
+        }
+        
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .hamburger:hover {
             color: #D4AF37;
         }
         
@@ -463,17 +480,40 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: column;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                padding: 20px 0;
+            }
+            
+            nav.active {
+                display: block;
             }
             
             nav ul {
-                margin-top: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
+                flex-direction: column;
+                align-items: center;
             }
             
             nav ul li {
-                margin: 5px 10px;
+                margin: 10px 0;
+            }
+            
+            nav ul li a {
+                font-size: 18px;
             }
             
             .hero-content h2 {
@@ -496,6 +536,9 @@
         <div class="container header-container">
             <div class="logo">
                 <h1>MARKO <span>GOLD FIRM</span></h1>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
             </div>
             <nav>
                 <ul>
@@ -771,5 +814,39 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close menu when clicking a nav link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                const icon = hamburger.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+                nav.classList.remove('active');
+                const icon = hamburger.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+        });
+    </script>
 </body>
 </html>
