@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marko Gold Firm - Gold Trading & Mining Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #D4AF37;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #B8860B;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #D4AF37;
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: #666;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            color: #D4AF37;
+            margin-left: 10px;
+        }
+        
+        .logo span {
+            color: #fff;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav ul li a:hover {
+            color: #D4AF37;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/hero-bg.jpeg') no-repeat center center/cover;
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            color: #D4AF37;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #f2f2f2;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: #D4AF37;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        /* Mining Section */
+        .mining-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .mining-text {
+            flex: 1;
+        }
+        
+        .mining-text h3 {
+            color: #D4AF37;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .mining-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mining-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Assistance Section */
+        .assistance {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/assistance-img.jpeg') no-repeat center center/cover;
+            color: #fff;
+        }
+        
+        .assistance-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .assistance-text {
+            flex: 1;
+        }
+        
+        .assistance-text h3 {
+            color: #D4AF37;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .assistance-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .assistance-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Equipment Section */
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .equipment-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .equipment-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .equipment-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .equipment-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .equipment-card:hover .equipment-img img {
+            transform: scale(1.1);
+        }
+        
+        .equipment-info {
+            padding: 20px;
+        }
+        
+        .equipment-info h3 {
+            color: #D4AF37;
+            margin-bottom: 10px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #D4AF37;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial .client {
+            font-weight: bold;
+            color: #D4AF37;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info, .contact-form {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            color: #D4AF37;
+            margin-bottom: 20px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 24px;
+            color: #D4AF37;
+            margin-right: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #222;
+            color: #fff;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #D4AF37;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: #ddd;
+            margin-bottom: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #D4AF37;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            color: #fff;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: #D4AF37;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero-content h2 {
+                font-size: 36px;
+            }
+            
+            .about-content, .mining-content, .assistance-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>MARKO <span>GOLD FIRM</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#mining">Mining</a></li>
+                    <li><a href="#assistance">Assistance</a></li>
+                    <li><a href="#equipment">Equipment</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h2>Excellence in Gold Trading & Mining</h2>
+            <p>Maximizing profits for our clients and investors through premium gold services</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Marko Gold Firm</h2>
+                <p>Your trusted partner in gold trading and mining</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>We Are Industry Leaders</h3>
+                    <p>Marko Gold Firm is a financially solid company with many different investment options available. We are equipped to meet various investment styles and risk tolerance levels.</p>
+                    <p>We've earned a strong reputation in providing the best services in the buying and selling of gold. Our investors expect a consistently great return on their investment, and Marko Gold Firm more than delivers.</p>
+                    <p>Our goal is to maximize profits for our clients and investors through strategic gold trading and mining operations.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <img src="img/about-img.jpeg" alt="About Marko Gold Firm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Gold Services</h2>
+                <p>Comprehensive gold trading solutions</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Gold Buying</h3>
+                    <p>We offer competitive rates for gold purchases with transparent pricing and immediate payment.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Gold Selling</h3>
+                    <p>Access to international markets ensures you get the best possible price for your gold.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Investment Options</h3>
+                    <p>Various investment vehicles tailored to your risk tolerance and financial goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mining Section -->
+    <section id="mining" class="mining">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mining Operations</h2>
+                <p>Expert gold mining with state-of-the-art technology</p>
+            </div>
+            <div class="mining-content">
+                <div class="mining-image">
+                    <img src="img/mining-img.jpeg" alt="Mining Operations">
+                </div>
+                <div class="mining-text">
+                    <h3>Professional Gold Mining</h3>
+                    <p>With collective individual experience in the mining industry, Marko Gold Firm is committed to finding and maintaining the best assets. As a respected producer of gold, we are known for our state-of-the-art capabilities and advanced processes to locate and secure the best assets.</p>
+                    <p>We operate and manage an impressive portfolio of profitable gold mines in some of the most lucrative regions throughout West Africa with a vision of future global presence.</p>
+                    <p>We are proud to be considered the 'miner of choice' by our partners, suppliers and peers in the industry.</p>
+                    <a href="#contact" class="btn">Explore Our Mines</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assistance Section -->
+    <section id="assistance" class="assistance">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mining Assistance Services</h2>
+                <p>Supporting miners with essential resources</p>
+            </div>
+            <div class="assistance-content">
+                <div class="assistance-text">
+                    <h3>Comprehensive Miner Support</h3>
+                    <p>We are proud to be recognized as the 'go-to' source for miners. We help miners by providing capital and essential resources, including personnel, training and logistical support.</p>
+                    <p>Our team of experts offers guidance on best practices, safety protocols, and efficient extraction methods to maximize yield while minimizing environmental impact.</p>
+                    <p>We believe in supporting the mining community through knowledge sharing, financial backing, and technical assistance to ensure sustainable and profitable operations for all.</p>
+                    <a href="#contact" class="btn">Get Assistance</a>
+                </div>
+                <div class="assistance-image">
+                    <img src="img/assistance-bg.jpg" alt="Mining Assistance">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section id="equipment" class="equipment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Equipment Rentals</h2>
+                <p>Advanced mining equipment for rent</p>
+            </div>
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <div class="equipment-img">
+                        <img src="img/equipment1.jpeg" alt="Excavators">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Excavators & Loaders</h3>
+                        <p>Heavy-duty equipment for large-scale mining operations with various size options.</p>
+                    </div>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-img">
+                        <img src="img/equipment2.jpeg" alt="Processing Equipment">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Processing Equipment</h3>
+                        <p>Modern gold processing equipment for efficient extraction and refinement.</p>
+                    </div>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-img">
+                        <img src="img/equipment3.jpeg" alt="Safety Gear">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Safety Equipment</h3>
+                        <p>Comprehensive safety gear and monitoring systems to protect your workforce.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>What our clients say about us</p>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <!-- <img src="img/client1.jpg" alt="Client 1"> -->
+                    <p>"Marko Gold Firm has consistently provided excellent returns on our gold investments. Their market knowledge is unparalleled."</p>
+                    <div class="client">- James Wilson, Investment Group CEO</div>
+                </div>
+                <div class="testimonial">
+                    <!-- <img src="img/client2.jpg" alt="Client 2"> -->
+                    <p>"The mining assistance and equipment rental services have transformed our operations. Our yield has increased by 40% since partnering with Marko."</p>
+                    <div class="client">- Sarah Mensah, Mining Cooperative Director</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <p>123 Gold Street, Mining District, City</p>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <p>+1 (123) 456-7890</p>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <p>info@markogoldfirm.com</p>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <p>Monday-Friday: 9am - 5pm</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Marko Gold Firm</h3>
+                    <p>Maximizing profits through gold trading, mining operations, and equipment services. Quality, integrity, and excellence since 2005.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About Us</a>
+                        <a href="#services">Gold Trading</a>
+                        <a href="#mining">Mining Operations</a>
+                        <a href="#assistance">Mining Assistance</a>
+                        <a href="#equipment">Equipment Rental</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Marko Gold Firm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
