@@ -58,20 +58,20 @@ class DatabaseSeeder extends Seeder
         Block::create([
             'page_id' => $homePage->id,
             'type' => 'hero',
-            'content' => json_encode([
+            'content' =>[
                 'headline' => 'Excellence in Gold Trading & Mining',
                 'subtext' => 'Maximizing profits for our clients and investors through premium gold services',
                 'cta_text' => 'Get Started',
                 'cta_url' => '/contact',
                 'background_image' => '/storage/images/hero-bg.jpeg',
-            ]),
+            ],
             'order' => 1,
             'status' => 'published',
         ]);
         Block::create([
             'page_id' => $homePage->id,
             'type' => 'testimonials',
-            'content' => json_encode([
+            'content' => [
                 'items' => [
                     [
                         'quote' => 'Bethel Gold has consistently provided excellent returns on our gold investments. Their market knowledge is unparalleled.',
@@ -82,7 +82,7 @@ class DatabaseSeeder extends Seeder
                         'client' => 'Sarah Mensah, Mining Cooperative Director',
                     ],
                 ],
-            ]),
+            ],
             'order' => 2,
             'status' => 'published',
         ]);
@@ -92,17 +92,17 @@ class DatabaseSeeder extends Seeder
         Block::create([
             'page_id' => $aboutPage->id,
             'type' => 'section_title',
-            'content' => json_encode([
+            'content' =>[
                 'title' => 'About Bethel Gold',
                 'subtitle' => 'Your trusted partner in gold trading and mining',
-            ]),
+            ],
             'order' => 1,
             'status' => 'published',
         ]);
         Block::create([
             'page_id' => $aboutPage->id,
             'type' => 'text_image',
-            'content' => json_encode([
+            'content' => [
                 'headline' => 'We Are Industry Leaders',
                 'text' => [
                     'Bethel Gold is a financially solid company with many different investment options available. We are equipped to meet various investment styles and risk tolerance levels.',
@@ -113,7 +113,7 @@ class DatabaseSeeder extends Seeder
                 'cta_text' => 'Learn More',
                 'cta_url' => '/contact',
                 'image_position' => 'right',
-            ]),
+            ],
             'order' => 2,
             'status' => 'published',
         ]);
@@ -123,17 +123,17 @@ class DatabaseSeeder extends Seeder
         Block::create([
             'page_id' => $servicesPage->id,
             'type' => 'section_title',
-            'content' => json_encode([
+            'content' => [
                 'title' => 'Our Gold Services',
                 'subtitle' => 'Comprehensive gold trading solutions',
-            ]),
+            ],
             'order' => 1,
             'status' => 'published',
         ]);
         Block::create([
             'page_id' => $servicesPage->id,
             'type' => 'grid',
-            'content' => json_encode([
+            'content' => [
                 'items' => [
                     [
                         'icon' => 'fas fa-hand-holding-usd',
@@ -151,7 +151,7 @@ class DatabaseSeeder extends Seeder
                         'description' => 'Various investment vehicles tailored to your risk tolerance and financial goals.',
                     ],
                 ],
-            ]),
+            ],
             'order' => 2,
             'status' => 'published',
         ]);
@@ -161,17 +161,17 @@ class DatabaseSeeder extends Seeder
         Block::create([
             'page_id' => $miningPage->id,
             'type' => 'section_title',
-            'content' => json_encode([
+            'content' => [
                 'title' => 'Our Mining Operations',
                 'subtitle' => 'Expert gold mining with state-of-the-art technology',
-            ]),
+            ],
             'order' => 1,
             'status' => 'published',
         ]);
         Block::create([
             'page_id' => $miningPage->id,
             'type' => 'text_image',
-            'content' => json_encode([
+            'content' => [
                 'headline' => 'Professional Gold Mining',
                 'text' => [
                     'With collective individual experience in the mining industry, Bethel Gold is committed to finding and maintaining the best assets. As a respected producer of gold, we are known for our state-of-the-art capabilities and advanced processes to locate and secure the best assets.',
@@ -182,7 +182,7 @@ class DatabaseSeeder extends Seeder
                 'cta_text' => 'Explore Our Mines',
                 'cta_url' => '/contact',
                 'image_position' => 'left',
-            ]),
+            ],
             'order' => 2,
             'status' => 'published',
         ]);
@@ -192,17 +192,17 @@ class DatabaseSeeder extends Seeder
         Block::create([
             'page_id' => $assistancePage->id,
             'type' => 'section_title',
-            'content' => json_encode([
+            'content' => [
                 'title' => 'Mining Assistance Services',
                 'subtitle' => 'Supporting miners with essential resources',
-            ]),
+            ],
             'order' => 1,
             'status' => 'published',
         ]);
         Block::create([
             'page_id' => $assistancePage->id,
             'type' => 'text_image',
-            'content' => json_encode([
+            'content' => [
                 'headline' => 'Comprehensive Miner Support',
                 'text' => [
                     'We are proud to be recognized as the \'go-to\' source for miners. We help miners by providing capital and essential resources, including personnel, training and logistical support.',
@@ -213,7 +213,7 @@ class DatabaseSeeder extends Seeder
                 'cta_text' => 'Get Assistance',
                 'cta_url' => '/contact',
                 'image_position' => 'right',
-            ]),
+            ],
             'order' => 2,
             'status' => 'published',
         ]);
@@ -223,17 +223,17 @@ class DatabaseSeeder extends Seeder
         Block::create([
             'page_id' => $equipmentPage->id,
             'type' => 'section_title',
-            'content' => json_encode([
+            'content' => [
                 'title' => 'Equipment Rentals',
                 'subtitle' => 'Advanced mining equipment for rent',
-            ]),
+            ],
             'order' => 1,
             'status' => 'published',
         ]);
         Block::create([
             'page_id' => $equipmentPage->id,
             'type' => 'grid',
-            'content' => json_encode([
+            'content' => [
                 'items' => [
                     [
                         'image' => '/storage/images/about-img.jpeg',
@@ -251,7 +251,7 @@ class DatabaseSeeder extends Seeder
                         'description' => 'Comprehensive safety gear and monitoring systems to protect your workforce.',
                     ],
                 ],
-            ]),
+            ],
             'order' => 2,
             'status' => 'published',
         ]);
@@ -261,17 +261,17 @@ class DatabaseSeeder extends Seeder
         Block::create([
             'page_id' => $contactPage->id,
             'type' => 'section_title',
-            'content' => json_encode([
+            'content' => [
                 'title' => 'Contact Us',
                 'subtitle' => 'Get in touch with our team',
-            ]),
+            ],
             'order' => 1,
             'status' => 'published',
         ]);
         Block::create([
             'page_id' => $contactPage->id,
             'type' => 'contact',
-            'content' => json_encode([
+            'content' =>[
                 'info' => [
                     ['icon' => 'fas fa-map-marker-alt', 'detail' => '123 Gold Street, Mining District, City'],
                     ['icon' => 'fas fa-phone', 'detail' => '+1 (123) 456-7890'],
@@ -281,7 +281,7 @@ class DatabaseSeeder extends Seeder
                 'form' => [
                     'fields' => ['name', 'email', 'subject', 'message'],
                 ],
-            ]),
+            ],
             'order' => 2,
             'status' => 'published',
         ]);
@@ -291,17 +291,17 @@ class DatabaseSeeder extends Seeder
         Block::create([
             'page_id' => $buyGoldPage->id,
             'type' => 'section_title',
-            'content' => json_encode([
+            'content' => [
                 'title' => 'Buy Gold',
                 'subtitle' => 'Purchase gold coins, bars, and jewelry at competitive prices',
-            ]),
+            ],
             'order' => 1,
             'status' => 'draft',
         ]);
         Block::create([
             'page_id' => $buyGoldPage->id,
             'type' => 'grid',
-            'content' => json_encode([
+            'content' => [
                 'items' => [
                     [
                         'image' => '/storage/images/about-img.jpeg',
@@ -319,18 +319,18 @@ class DatabaseSeeder extends Seeder
                         'description' => 'Elegant gold jewelry with guaranteed authenticity.',
                     ],
                 ],
-            ]),
+            ],
             'order' => 2,
             'status' => 'draft',
         ]);
         Block::create([
             'page_id' => $buyGoldPage->id,
             'type' => 'text',
-            'content' => json_encode([
+            'content' =>[
                 'text' => 'Secure payment options and insured shipping available. Contact our sales team to place your order or inquire about current pricing linked to live market rates.',
                 'cta_text' => 'Contact Sales',
                 'cta_url' => '/contact',
-            ]),
+            ],
             'order' => 3,
             'status' => 'draft',
         ]);
@@ -340,17 +340,17 @@ class DatabaseSeeder extends Seeder
         Block::create([
             'page_id' => $sellGoldPage->id,
             'type' => 'section_title',
-            'content' => json_encode([
+            'content' => [
                 'title' => 'Sell Gold',
                 'subtitle' => 'Sell your gold with transparent pricing and instant payments',
-            ]),
+            ],
             'order' => 1,
             'status' => 'draft',
         ]);
         Block::create([
             'page_id' => $sellGoldPage->id,
             'type' => 'steps',
-            'content' => json_encode([
+            'content' =>[
                 'steps' => [
                     [
                         'title' => 'Get a Free Quote',
@@ -365,21 +365,21 @@ class DatabaseSeeder extends Seeder
                         'description' => 'Receive immediate payment via your preferred method with no hidden fees.',
                     ],
                 ],
-            ]),
+            ],
             'order' => 2,
             'status' => 'draft',
         ]);
         Block::create([
             'page_id' => $sellGoldPage->id,
             'type' => 'testimonials',
-            'content' => json_encode([
+            'content' => [
                 'items' => [
                     [
                         'quote' => 'Selling my gold to Bethel Gold was seamless. The process was transparent, and I got paid instantly!',
                         'client' => 'John Doe, Satisfied Seller',
                     ],
                 ],
-            ]),
+            ],
             'order' => 3,
             'status' => 'draft',
         ]);
@@ -389,24 +389,24 @@ class DatabaseSeeder extends Seeder
         Block::create([
             'page_id' => $livePricesPage->id,
             'type' => 'section_title',
-            'content' => json_encode([
+            'content' => [
                 'title' => 'Live Prices',
                 'subtitle' => 'Real-time gold, silver, and platinum prices',
-            ]),
+            ],
             'order' => 1,
             'status' => 'draft',
         ]);
         Block::create([
             'page_id' => $livePricesPage->id,
             'type' => 'live_prices',
-            'content' => json_encode([
+            'content' => [
                 'prices' => [
                     'gold' => 2500.00, // Default prices for seeding
                     'silver' => 30.00,
                     'platinum' => 950.00,
                 ],
                 'calculator' => true,
-            ]),
+            ],
             'order' => 2,
             'status' => 'draft',
         ]);

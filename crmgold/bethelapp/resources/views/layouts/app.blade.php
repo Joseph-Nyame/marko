@@ -219,90 +219,6 @@
             font-size: 20px;
             margin-bottom: 30px;
         }
-
-       /* Steps Section */
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-.step-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid {{ $settings['primary_color'] ?? '#C9A635' }};
-    text-align: center;
-    transition: transform 0.3s;
-}
-.step-card:hover {
-    transform: translateY(-10px);
-}
-.step-card h3 {
-    color: {{ $settings['primary_color'] ?? '#C9A635' }};
-    margin-bottom: 10px;
-}
-
-/* Live Prices Section */
-.live-prices {
-    text-align: center;
-}
-.price-calculator {
-    max-width: 500px;
-    margin: 20px auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid {{ $settings['primary_color'] ?? '#C9A635' }};
-}
-.price-calculator h3 {
-    color: {{ $settings['primary_color'] ?? '#C9A635' }};
-    margin-bottom: 20px;
-}
-.price-calculator .form-group {
-    margin-bottom: 20px;
-}
-.price-calculator .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-}
-.price-calculator .form-group input,
-.price-calculator .form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid {{ $settings['primary_color'] ?? '#C9A635' }};
-    border-radius: 5px;
-}
-
-.contact-form .bg-green-100 {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-.contact-form .bg-red-100 {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-.contact-form .form-group {
-    margin-bottom: 20px;
-}
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-
-
-
-
-
     </style>
 </head>
 <body>
@@ -311,7 +227,7 @@
         <div class="container header-container">
             <div class="logo">
                 <img src="{{ $settings['logo_url'] ?? '/img/Homelogo.jpg' }}" alt="Bethel Gold Logo">
-                <h1>{{ $settings['site_name'] ?? 'BETHEL' }} <span>GOLD</span></h1>
+                <h1>{{ $settings['site_name'] ?? 'BETHEL' }} </h1>
             </div>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>

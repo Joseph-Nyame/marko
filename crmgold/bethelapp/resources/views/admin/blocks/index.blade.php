@@ -1,11 +1,14 @@
 @extends('admin.layouts.admin')
 
 @section('content')
+
     <div class="bg-white p-6 rounded shadow">
-        <h2 class="text-2xl mb-4">Manage Blocks for {{ $page->title }}</h2>
-        <a href="{{ route('blocks.create', ['page_id' => $page->id]) }}" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">Add New Block</a>
-        <div id="sortable-blocks">
+
+        <a href="{{ route('blocks.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">Add New Block</a>
             @foreach ($blocks as $block)
+          <h2 class="text-2xl mb-4">Manage Blocks for {{ $block->page->title }}</h2>
+              <div id="sortable-blocks">
+
                 <div class="block-item p-4 border mb-2 bg-gray-50" data-id="{{ $block->id }}">
                     <h3>{{ $block->type }} (Order: {{ $block->order }}) - {{ $block->status }}</h3>
                     <p>{{ json_encode($block->content) }}</p>
@@ -39,3 +42,4 @@
             },
         });
     </script>
+@endsection

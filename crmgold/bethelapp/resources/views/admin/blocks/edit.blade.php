@@ -3,7 +3,7 @@
 @section('content')
     <div class="bg-white p-6 rounded shadow">
         <h2 class="text-2xl mb-4">Edit Block for {{ $block->page->title }}</h2>
-        <form action="{{ route('blocks.update', $block) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('blocks.update', $block) }}" method="POST" enctype="multipart/form-data" id="block-form">
             @csrf
             @method('PUT')
             <input type="hidden" name="page_id" value="{{ $block->page_id }}">
@@ -25,19 +25,19 @@
             <div id="hero-fields" style="display: none;">
                 <div class="mb-4">
                     <label class="block mb-1">Headline</label>
-                    <input type="text" name="content[headline]" value="{{ $block->content['headline'] ?? '' }}" class="w-full border p-2 rounded" required>
+                    <input type="text" name="content[headline]" value="{{ $block->content['headline'] ?? '' }}" class="w-full border p-2 rounded">
                 </div>
                 <div class="mb-4">
                     <label class="block mb-1">Subtext</label>
-                    <textarea name="content[subtext]" class="w-full border p-2 rounded" required>{{ $block->content['subtext'] ?? '' }}</textarea>
+                    <textarea name="content[subtext]" class="w-full border p-2 rounded">{{ $block->content['subtext'] ?? '' }}</textarea>
                 </div>
                 <div class="mb-4">
                     <label class="block mb-1">CTA Text</label>
-                    <input type="text" name="content[cta_text]" value="{{ $block->content['cta_text'] ?? '' }}" class="w-full border p-2 rounded" required>
+                    <input type="text" name="content[cta_text]" value="{{ $block->content['cta_text'] ?? '' }}" class="w-full border p-2 rounded">
                 </div>
                 <div class="mb-4">
                     <label class="block mb-1">CTA URL</label>
-                    <input type="text" name="content[cta_url]" value="{{ $block->content['cta_url'] ?? '' }}" class="w-full border p-2 rounded" required>
+                    <input type="text" name="content[cta_url]" value="{{ $block->content['cta_url'] ?? '' }}" class="w-full border p-2 rounded">
                 </div>
                 <div class="mb-4">
                     <label class="block mb-1">Background Image</label>
@@ -52,11 +52,11 @@
             <div id="section_title-fields" style="display: none;">
                 <div class="mb-4">
                     <label class="block mb-1">Title</label>
-                    <input type="text" name="content[title]" value="{{ $block->content['title'] ?? '' }}" class="w-full border p-2 rounded" required>
+                    <input type="text" name="content[title]" value="{{ $block->content['title'] ?? '' }}" class="w-full border p-2 rounded">
                 </div>
                 <div class="mb-4">
                     <label class="block mb-1">Subtitle</label>
-                    <input type="text" name="content[subtitle]" value="{{ $block->content['subtitle'] ?? '' }}" class="w-full border p-2 rounded" required>
+                    <input type="text" name="content[subtitle]" value="{{ $block->content['subtitle'] ?? '' }}" class="w-full border p-2 rounded">
                 </div>
             </div>
 
@@ -64,14 +64,14 @@
             <div id="text_image-fields" style="display: none;">
                 <div class="mb-4">
                     <label class="block mb-1">Headline</label>
-                    <input type="text" name="content[headline]" value="{{ $block->content['headline'] ?? '' }}" class="w-full border p-2 rounded" required>
+                    <input type="text" name="content[headline]" value="{{ $block->content['headline'] ?? '' }}" class="w-full border p-2 rounded">
                 </div>
                 <div class="mb-4">
                     <label class="block mb-1">Text Paragraphs</label>
                     <div id="text-paragraphs">
                         @foreach ($block->content['text'] ?? [] as $index => $paragraph)
                             <div class="paragraph-group mb-2">
-                                <textarea name="content[text][{{ $index }}]" class="w-full border p-2 rounded" required>{{ $paragraph }}</textarea>
+                                <textarea name="content[text][{{ $index }}]" class="w-full border p-2 rounded">{{ $paragraph }}</textarea>
                             </div>
                         @endforeach
                     </div>
@@ -116,9 +116,9 @@
                                 @endif
                                 <input type="file" name="content[items][{{ $index }}][image]" class="w-full border p-2 rounded mb-2" accept="image/*">
                                 <label class="block mb-1">Title</label>
-                                <input type="text" name="content[items][{{ $index }}][title]" value="{{ $item['title'] ?? '' }}" class="w-full border p-2 rounded mb-2" required>
+                                <input type="text" name="content[items][{{ $index }}][title]" value="{{ $item['title'] ?? '' }}" class="w-full border p-2 rounded mb-2">
                                 <label class="block mb-1">Description</label>
-                                <textarea name="content[items][{{ $index }}][description]" class="w-full border p-2 rounded" required>{{ $item['description'] ?? '' }}</textarea>
+                                <textarea name="content[items][{{ $index }}][description]" class="w-full border p-2 rounded">{{ $item['description'] ?? '' }}</textarea>
                             </div>
                         @endforeach
                     </div>
@@ -134,9 +134,9 @@
                         @foreach ($block->content['info'] ?? [] as $index => $info)
                             <div class="info-group mb-4 border p-4 rounded">
                                 <label class="block mb-1">Icon (e.g., fas fa-map-marker-alt)</label>
-                                <input type="text" name="content[info][{{ $index }}][icon]" value="{{ $info['icon'] ?? '' }}" class="w-full border p-2 rounded mb-2" required>
+                                <input type="text" name="content[info][{{ $index }}][icon]" value="{{ $info['icon'] ?? '' }}" class="w-full border p-2 rounded mb-2">
                                 <label class="block mb-1">Detail</label>
-                                <input type="text" name="content[info][{{ $index }}][detail]" value="{{ $info['detail'] ?? '' }}" class="w-full border p-2 rounded" required>
+                                <input type="text" name="content[info][{{ $index }}][detail]" value="{{ $info['detail'] ?? '' }}" class="w-full border p-2 rounded">
                             </div>
                         @endforeach
                     </div>
@@ -144,7 +144,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="block mb-1">Form Fields (comma-separated, e.g., name,email,subject,message)</label>
-                    <input type="text" name="content[form][fields]" value="{{ implode(',', $block->content['form']['fields'] ?? []) }}" class="w-full border p-2 rounded" required>
+                    <input type="text" name="content[form][fields]" value="{{ implode(',', $block->content['form']['fields'] ?? []) }}" class="w-full border p-2 rounded">
                 </div>
             </div>
 
@@ -156,9 +156,9 @@
                         @foreach ($block->content['steps'] ?? [] as $index => $step)
                             <div class="step-group mb-4 border p-4 rounded">
                                 <label class="block mb-1">Title</label>
-                                <input type="text" name="content[steps][{{ $index }}][title]" value="{{ $step['title'] ?? '' }}" class="w-full border p-2 rounded mb-2" required>
+                                <input type="text" name="content[steps][{{ $index }}][title]" value="{{ $step['title'] ?? '' }}" class="w-full border p-2 rounded mb-2">
                                 <label class="block mb-1">Description</label>
-                                <textarea name="content[steps][{{ $index }}][description]" class="w-full border p-2 rounded" required>{{ $step['description'] ?? '' }}</textarea>
+                                <textarea name="content[steps][{{ $index }}][description]" class="w-full border p-2 rounded">{{ $step['description'] ?? '' }}</textarea>
                             </div>
                         @endforeach
                     </div>
@@ -174,9 +174,9 @@
                         @foreach ($block->content['items'] ?? [] as $index => $testimonial)
                             <div class="testimonial-group mb-4 border p-4 rounded">
                                 <label class="block mb-1">Quote</label>
-                                <textarea name="content[items][{{ $index }}][quote]" class="w-full border p-2 rounded mb-2" required>{{ $testimonial['quote'] ?? '' }}</textarea>
+                                <textarea name="content[items][{{ $index }}][quote]" class="w-full border p-2 rounded mb-2">{{ $testimonial['quote'] ?? '' }}</textarea>
                                 <label class="block mb-1">Client</label>
-                                <input type="text" name="content[items][{{ $index }}][client]" value="{{ $testimonial['client'] ?? '' }}" class="w-full border p-2 rounded" required>
+                                <input type="text" name="content[items][{{ $index }}][client]" value="{{ $testimonial['client'] ?? '' }}" class="w-full border p-2 rounded">
                             </div>
                         @endforeach
                     </div>
@@ -188,15 +188,15 @@
             <div id="live_prices-fields" style="display: none;">
                 <div class="mb-4">
                     <label class="block mb-1">Gold Price (USD per ounce)</label>
-                    <input type="number" step="0.01" name="content[prices][gold]" value="{{ $block->content['prices']['gold'] ?? '' }}" class="w-full border p-2 rounded" required>
+                    <input type="number" step="0.01" name="content[prices][gold]" value="{{ $block->content['prices']['gold'] ?? '' }}" class="w-full border p-2 rounded">
                 </div>
                 <div class="mb-4">
                     <label class="block mb-1">Silver Price (USD per ounce)</label>
-                    <input type="number" step="0.01" name="content[prices][silver]" value="{{ $block->content['prices']['silver'] ?? '' }}" class="w-full border p-2 rounded" required>
+                    <input type="number" step="0.01" name="content[prices][silver]" value="{{ $block->content['prices']['silver'] ?? '' }}" class="w-full border p-2 rounded">
                 </div>
                 <div class="mb-4">
                     <label class="block mb-1">Platinum Price (USD per ounce)</label>
-                    <input type="number" step="0.01" name="content[prices][platinum]" value="{{ $block->content['prices']['platinum'] ?? '' }}" class="w-full border p-2 rounded" required>
+                    <input type="number" step="0.01" name="content[prices][platinum]" value="{{ $block->content['prices']['platinum'] ?? '' }}" class="w-full border p-2 rounded">
                 </div>
                 <div class="mb-4">
                     <label class="block mb-1">Enable Calculator</label>
@@ -219,13 +219,17 @@
             document.querySelectorAll('[id$="-fields"]').forEach(div => div.style.display = 'none');
             document.getElementById(`${select.value}-fields`).style.display = 'block';
         }
-        toggleFields(document.querySelector('select[name="type"]'));
+
+        // Initialize the form with the correct fields visible
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleFields(document.querySelector('select[name="type"]'));
+        });
 
         let paragraphCount = {{ count($block->content['text'] ?? []) }};
         function addParagraph() {
             const div = document.createElement('div');
             div.className = 'paragraph-group mb-2';
-            div.innerHTML = `<textarea name="content[text][${paragraphCount}]" class="w-full border p-2 rounded" required></textarea>`;
+            div.innerHTML = `<textarea name="content[text][${paragraphCount}]" class="w-full border p-2 rounded"></textarea>`;
             document.getElementById('text-paragraphs').appendChild(div);
             paragraphCount++;
         }
@@ -240,9 +244,9 @@
                 <label class="block mb-1">Image</label>
                 <input type="file" name="content[items][${gridCount}][image]" class="w-full border p-2 rounded mb-2" accept="image/*">
                 <label class="block mb-1">Title</label>
-                <input type="text" name="content[items][${gridCount}][title]" class="w-full border p-2 rounded mb-2" required>
+                <input type="text" name="content[items][${gridCount}][title]" class="w-full border p-2 rounded mb-2">
                 <label class="block mb-1">Description</label>
-                <textarea name="content[items][${gridCount}][description]" class="w-full border p-2 rounded" required></textarea>
+                <textarea name="content[items][${gridCount}][description]" class="w-full border p-2 rounded"></textarea>
             `;
             document.getElementById('grid-items').appendChild(div);
             gridCount++;
@@ -254,9 +258,9 @@
             div.className = 'info-group mb-4 border p-4 rounded';
             div.innerHTML = `
                 <label class="block mb-1">Icon</label>
-                <input type="text" name="content[info][${infoCount}][icon]" class="w-full border p-2 rounded mb-2" required>
+                <input type="text" name="content[info][${infoCount}][icon]" class="w-full border p-2 rounded mb-2">
                 <label class="block mb-1">Detail</label>
-                <input type="text" name="content[info][${infoCount}][detail]" class="w-full border p-2 rounded" required>
+                <input type="text" name="content[info][${infoCount}][detail]" class="w-full border p-2 rounded">
             `;
             document.getElementById('contact-info').appendChild(div);
             infoCount++;
@@ -268,9 +272,9 @@
             div.className = 'step-group mb-4 border p-4 rounded';
             div.innerHTML = `
                 <label class="block mb-1">Title</label>
-                <input type="text" name="content[steps][${stepCount}][title]" class="w-full border p-2 rounded mb-2" required>
+                <input type="text" name="content[steps][${stepCount}][title]" class="w-full border p-2 rounded mb-2">
                 <label class="block mb-1">Description</label>
-                <textarea name="content[steps][${stepCount}][description]" class="w-full border p-2 rounded" required></textarea>
+                <textarea name="content[steps][${stepCount}][description]" class="w-full border p-2 rounded"></textarea>
             `;
             document.getElementById('steps-items').appendChild(div);
             stepCount++;
@@ -282,9 +286,9 @@
             div.className = 'testimonial-group mb-4 border p-4 rounded';
             div.innerHTML = `
                 <label class="block mb-1">Quote</label>
-                <textarea name="content[items][${testimonialCount}][quote]" class="w-full border p-2 rounded mb-2" required></textarea>
+                <textarea name="content[items][${testimonialCount}][quote]" class="w-full border p-2 rounded mb-2"></textarea>
                 <label class="block mb-1">Client</label>
-                <input type="text" name="content[items][${testimonialCount}][client]" class="w-full border p-2 rounded" required>
+                <input type="text" name="content[items][${testimonialCount}][client]" class="w-full border p-2 rounded">
             `;
             document.getElementById('testimonial-items').appendChild(div);
             testimonialCount++;
