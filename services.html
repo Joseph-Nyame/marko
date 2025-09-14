@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Bethel Gold</title>
+    <title>Our Services - Bethel Gold</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset and Base Styles */
@@ -179,39 +179,7 @@
             color: var(--gold);
         }
         
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h3 {
-            color: var(--black);
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-        
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 2px solid var(--gold);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Features Grid */
+        /* Services Grid */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -244,20 +212,36 @@
             color: var(--black);
         }
         
-        /* Trust Badges */
-        .trust-badges {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 30px;
+        /* FAQs Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .badge {
-            padding: 5px 10px;
-            background: rgba(201, 166, 53, 0.2);
-            border: 1px solid var(--gold);
-            border-radius: 3px;
-            font-size: 12px;
+        .faq-item {
+            margin-bottom: 20px;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+        }
+        
+        .faq-item h3 {
+            font-size: 20px;
+            color: var(--black);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .faq-item h3 i {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+        
+        .faq-item p {
+            color: #555;
         }
         
         /* Footer */
@@ -324,6 +308,20 @@
             background: var(--gold);
         }
         
+        .trust-badges {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .badge {
+            padding: 5px 10px;
+            background: rgba(201, 166, 53, 0.2);
+            border: 1px solid var(--gold);
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
         .copyright {
             text-align: center;
             margin-top: 40px;
@@ -333,8 +331,8 @@
         
         /* Responsive Design */
         @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
+            .grid-3 {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -400,7 +398,7 @@
             </div>
             <nav>
                 <ul>
-                   <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="contact.html">Buy Gold</a></li>
                     <li><a href="contact.html">Sell Gold</a></li>
@@ -415,92 +413,68 @@
         </div>
     </header>
 
-    <!-- About Us Section -->
-    <section id="about" style="margin-top: 70px;">
+    <!-- Services Section -->
+    <section id="services" style="margin-top: 70px; background-color: #f9f9f9;">
         <div class="container">
             <div class="section-title">
-                <h2>About Bethel Gold</h2>
-                <p>Your trusted partner in gold trading since 2005</p>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Our Story</h3>
-                    <p>Founded in 2005, Bethel Gold has grown to become a trusted name in the gold industry, serving thousands of clients with integrity and expertise. With over 15 years of experience, we specialize in buying and selling gold, offering competitive prices and unparalleled service. Our commitment to trust is backed by our full licensing and certifications from industry authorities, including a BBB A+ rating and membership in the International Precious Metals Institute. At Bethel Gold, we believe in building lasting relationships through transparency and reliability.</p>
-                    <a href="contact.html" class="btn" style="margin-top: 20px;">Contact Us</a>
-                </div>
-                <div class="about-image">
-                    <img src="img/about-img.jpeg" alt="About Bethel Gold">
-                </div>
-            </div>
-
-            <div class="section-title">
-                <h2>Why Choose Us</h2>
-                <p>We prioritize your trust and satisfaction with every transaction</p>
+                <h2>Our Services</h2>
+                <p>Comprehensive gold solutions tailored to your needs</p>
             </div>
             
             <div class="grid-3">
                 <div class="card">
                     <div class="card-icon">
-                        <i class="fas fa-percentage"></i>
+                        <i class="fas fa-fire"></i>
                     </div>
-                    <h3>Competitive Pricing</h3>
-                    <p>We offer the most competitive rates in the market, updated daily to reflect real-time gold and silver prices, ensuring you get the best value for your transactions.</p>
+                    <h3>Gold Refining</h3>
+                    <p>Transform your scrap gold or old jewelry into pure gold with our advanced refining process, ensuring maximum value and purity.</p>
+                    <a href="contact.html" class="btn" style="margin-top: 15px;">Learn More</a>
                 </div>
                 
                 <div class="card">
                     <div class="card-icon">
-                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-exchange-alt"></i>
                     </div>
-                    <h3>Transparency</h3>
-                    <p>Our pricing and evaluation processes are fully transparent, with detailed explanations provided for every step, so you know exactly what to expect.</p>
+                    <h3>Jewelry Exchange</h3>
+                    <p>Trade in your old or unwanted jewelry for new pieces or cash, with transparent evaluations and competitive offers.</p>
+                    <a href="contact.html" class="btn" style="margin-top: 15px;">Get Started</a>
                 </div>
                 
                 <div class="card">
                     <div class="card-icon">
-                        <i class="fas fa-tachometer-alt"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Quick Service</h3>
-                    <p>Experience fast and efficient service with instant payments upon verification, making your gold buying or selling process seamless and hassle-free.</p>
+                    <h3>Investment Advice</h3>
+                    <p>Receive expert guidance on gold investments, helping you make informed decisions to diversify your portfolio.</p>
+                    <a href="contact.html" class="btn" style="margin-top: 15px;">Book a Consultation</a>
                 </div>
             </div>
+        </div>
+    </section>
 
+    <!-- FAQs Section -->
+    <section id="faqs">
+        <div class="container">
             <div class="section-title">
-                <h2>Our Security Measures</h2>
-                <p>Your peace of mind is our priority</p>
+                <h2>Frequently Asked Questions</h2>
+                <p>Answers to common questions about our services</p>
             </div>
             
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3>Insured Transactions</h3>
-                    <p>All transactions are fully insured, protecting your assets from the moment they enter our care until the deal is complete.</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3><i class="fas fa-question-circle"></i> How do you test the purity of gold?</h3>
+                    <p>We use advanced X-ray fluorescence (XRF) technology and acid scratch tests, conducted by certified professionals, to accurately determine the purity of your gold, ensuring fair and transparent evaluations.</p>
                 </div>
                 
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-vial"></i>
-                    </div>
-                    <h3>Advanced Testing Methods</h3>
-                    <p>We use state-of-the-art XRF testing and acid scratch tests to ensure accurate gold purity assessments, conducted by certified professionals.</p>
+                <div class="faq-item">
+                    <h3><i class="fas fa-question-circle"></i> How can I verify the authenticity of gold purchased from Bethel Gold?</h3>
+                    <p>All gold products come with a certificate of authenticity. We also provide detailed documentation of purity and weight, verified through our rigorous testing methods, and offer consultations to explain our processes.</p>
                 </div>
                 
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3>Licensed & Certified</h3>
-                    <p>Bethel Gold is fully licensed and holds certifications from leading industry bodies, ensuring compliance with the highest standards.</p>
+                <div class="faq-item">
+                    <h3><i class="fas fa-question-circle"></i> What payment methods do you accept?</h3>
+                    <p>For purchases, we accept bank transfers, credit/debit cards, and secure online payments. For gold sales, we offer instant payments via bank transfer, cash, or check, ensuring quick and secure transactions.</p>
                 </div>
-            </div>
-
-            <div class="trust-badges">
-                <span class="badge">Licensed</span>
-                <span class="badge">Insured</span>
-                <span class="badge">BBB A+</span>
-                <span class="badge">IPMI Member</span>
             </div>
         </div>
     </section>

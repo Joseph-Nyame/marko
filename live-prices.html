@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Bethel Gold</title>
+    <title>Live Prices - Bethel Gold</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset and Base Styles */
@@ -179,85 +179,108 @@
             color: var(--gold);
         }
         
-        /* About Section */
-        .about-content {
+        /* Price Ticker */
+        .price-ticker {
+            background: var(--dark-bg);
+            color: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 70px;
+            z-index: 999;
+        }
+        
+        .ticker-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .ticker-item {
             display: flex;
             align-items: center;
-            gap: 40px;
-            margin-bottom: 50px;
+            margin: 0 10px;
         }
         
-        .about-text {
-            flex: 1;
+        .ticker-item span {
+            color: var(--gold);
+            font-weight: bold;
+            margin-right: 5px;
         }
         
-        .about-text h3 {
-            color: var(--black);
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-        
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 2px solid var(--gold);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Features Grid */
-        .grid-3 {
+        /* Price Charts */
+        .price-charts {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 30px;
+            margin-top: 40px;
         }
         
-        .card {
+        .chart-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .chart-container iframe {
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        .chart-credit {
+            font-size: 12px;
+            text-align: center;
+            margin-top: 10px;
+            color: #666;
+        }
+        
+        .chart-credit a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        /* Calculator */
+        .calculator {
             background: #fff;
             padding: 30px;
             border-radius: 10px;
-            border: 1px solid #eee;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
+            margin-top: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .card-icon {
-            font-size: 40px;
-            color: var(--gold);
+        .form-group {
             margin-bottom: 20px;
         }
         
-        .card h3 {
-            margin-bottom: 15px;
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
             color: var(--black);
         }
         
-        /* Trust Badges */
-        .trust-badges {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 30px;
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fff;
+            font-size: 16px;
         }
         
-        .badge {
-            padding: 5px 10px;
-            background: rgba(201, 166, 53, 0.2);
-            border: 1px solid var(--gold);
-            border-radius: 3px;
-            font-size: 12px;
+        .calc-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: var(--light-bg);
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--black);
         }
         
         /* Footer */
@@ -324,6 +347,20 @@
             background: var(--gold);
         }
         
+        .trust-badges {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .badge {
+            padding: 5px 10px;
+            background: rgba(201, 166, 53, 0.2);
+            border: 1px solid var(--gold);
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
         .copyright {
             text-align: center;
             margin-top: 40px;
@@ -331,10 +368,19 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
+        /* Admin Price Panel */
+        .admin-panel {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px 0;
+            display: none;
+        }
+        
         /* Responsive Design */
         @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
+            .price-charts {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -384,6 +430,15 @@
             .header-cta {
                 display: none;
             }
+            
+            .ticker-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .ticker-item {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -400,107 +455,90 @@
             </div>
             <nav>
                 <ul>
-                   <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Buy Gold</a></li>
-                    <li><a href="contact.html">Sell Gold</a></li>
+                    <li><a href="buy-gold.html">Buy Gold</a></li>
+                    <li><a href="sell-gold.html">Sell Gold</a></li>
                     <li><a href="live-prices.html">Live Prices</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-cta">
-                <a href="contact.html" class="btn">Sell Your Gold</a>
+                <a href="sell-gold.html" class="btn">Sell Your Gold</a>
             </div>
         </div>
     </header>
 
-    <!-- About Us Section -->
-    <section id="about" style="margin-top: 70px;">
+    <!-- Price Ticker -->
+    <div class="price-ticker">
+        <div class="container ticker-container">
+            <div class="ticker-item">
+                <span>GOLD (24K):</span> <div id="gold-24k">$2,050.30</div>
+            </div>
+            <div class="ticker-item">
+                <span>SILVER:</span> <div id="silver-price">$24.15</div>
+            </div>
+            <div class="ticker-item">
+                <span>PLATINUM:</span> <div id="platinum-price">$950.75</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Prices Section -->
+    <section id="live-prices" style="margin-top: 70px;">
         <div class="container">
             <div class="section-title">
-                <h2>About Bethel Gold</h2>
-                <p>Your trusted partner in gold trading since 2005</p>
+                <h2>Live Market Prices</h2>
+                <p>Track real-time prices for gold, silver, and platinum</p>
             </div>
             
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Our Story</h3>
-                    <p>Founded in 2005, Bethel Gold has grown to become a trusted name in the gold industry, serving thousands of clients with integrity and expertise. With over 15 years of experience, we specialize in buying and selling gold, offering competitive prices and unparalleled service. Our commitment to trust is backed by our full licensing and certifications from industry authorities, including a BBB A+ rating and membership in the International Precious Metals Institute. At Bethel Gold, we believe in building lasting relationships through transparency and reliability.</p>
-                    <a href="contact.html" class="btn" style="margin-top: 20px;">Contact Us</a>
+            <div class="price-charts">
+                <div class="chart-container">
+                    <iframe src="https://goldbroker.com/widget/live/XAU?currency=USD&height=320" scrolling="no" frameborder="0" height="320"></iframe>
+                    <div class="chart-credit">Gold price by <a href="https://goldbroker.com/">GoldBroker.com</a></div>
                 </div>
-                <div class="about-image">
-                    <img src="img/about-img.jpeg" alt="About Bethel Gold">
+                
+                <div class="chart-container">
+                    <iframe src="https://goldbroker.com/widget/live/XAG?currency=USD&height=320" scrolling="no" frameborder="0" height="320"></iframe>
+                    <div class="chart-credit">Silver price by <a href="https://goldbroker.com/">GoldBroker.com</a></div>
+                </div>
+                
+                <div class="chart-container">
+                    <iframe src="https://goldbroker.com/widget/live/XPT?currency=USD&height=320" scrolling="no" frameborder="0" height="320"></iframe>
+                    <div class="chart-credit">Platinum price by <a href="https://goldbroker.com/">GoldBroker.com</a></div>
                 </div>
             </div>
 
             <div class="section-title">
-                <h2>Why Choose Us</h2>
-                <p>We prioritize your trust and satisfaction with every transaction</p>
+                <h2>Calculate Your Item's Value</h2>
+                <p>Estimate the worth of your gold, silver, or platinum items</p>
             </div>
             
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-percentage"></i>
+            <div class="calculator">
+                <form id="valueCalculator">
+                    <div class="form-group">
+                        <label for="metalType">Select Metal Type</label>
+                        <select id="metalType" required>
+                            <option value="" disabled selected>Select Metal</option>
+                            <option value="gold24k">Gold (24K)</option>
+                            <option value="silver">Silver</option>
+                            <option value="platinum">Platinum</option>
+                        </select>
                     </div>
-                    <h3>Competitive Pricing</h3>
-                    <p>We offer the most competitive rates in the market, updated daily to reflect real-time gold and silver prices, ensuring you get the best value for your transactions.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="form-group">
+                        <label for="weight">Weight (grams)</label>
+                        <input type="number" id="weight" step="0.01" placeholder="Enter weight in grams" required>
                     </div>
-                    <h3>Transparency</h3>
-                    <p>Our pricing and evaluation processes are fully transparent, with detailed explanations provided for every step, so you know exactly what to expect.</p>
+                    <button type="submit" class="btn">Calculate Value</button>
+                </form>
+                <div class="calc-result" id="calcResult" style="display: none;">
+                    Estimated Value: <span id="estimatedValue">$0.00</span>
                 </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3>Quick Service</h3>
-                    <p>Experience fast and efficient service with instant payments upon verification, making your gold buying or selling process seamless and hassle-free.</p>
-                </div>
-            </div>
-
-            <div class="section-title">
-                <h2>Our Security Measures</h2>
-                <p>Your peace of mind is our priority</p>
-            </div>
-            
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3>Insured Transactions</h3>
-                    <p>All transactions are fully insured, protecting your assets from the moment they enter our care until the deal is complete.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-vial"></i>
-                    </div>
-                    <h3>Advanced Testing Methods</h3>
-                    <p>We use state-of-the-art XRF testing and acid scratch tests to ensure accurate gold purity assessments, conducted by certified professionals.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3>Licensed & Certified</h3>
-                    <p>Bethel Gold is fully licensed and holds certifications from leading industry bodies, ensuring compliance with the highest standards.</p>
-                </div>
-            </div>
-
-            <div class="trust-badges">
-                <span class="badge">Licensed</span>
-                <span class="badge">Insured</span>
-                <span class="badge">BBB A+</span>
-                <span class="badge">IPMI Member</span>
+                <p style="font-size: 14px; color: #666; text-align: center; margin-top: 15px;">
+                    Note: Values are estimates based on current market prices. Contact us for a precise quote.
+                </p>
+                <a href="contact.html" class="btn btn-secondary" style="margin-top: 20px; display: block; text-align: center;">Get a Quote</a>
             </div>
         </div>
     </section>
@@ -524,8 +562,8 @@
                     <div class="footer-links">
                         <a href="index.html">Home</a>
                         <a href="about.html">About Us</a>
-                        <a href="contact.html">Buy Gold</a>
-                        <a href="contact.html">Sell Gold</a>
+                        <a href="buy-gold.html">Buy Gold</a>
+                        <a href="sell-gold.html">Sell Gold</a>
                         <a href="live-prices.html">Live Prices</a>
                         <a href="services.html">Services</a>
                         <a href="contact.html">Contact</a>
@@ -561,6 +599,28 @@
         </div>
     </footer>
 
+    <!-- Admin Price Update Panel (Hidden by default) -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="container">
+            <h3>Admin Price Update</h3>
+            <form id="priceUpdateForm">
+                <div class="form-group">
+                    <label for="gold24k">Gold 24K Price:</label>
+                    <input type="number" step="0.01" id="gold24k" placeholder="Enter price">
+                </div>
+                <div class="form-group">
+                    <label for="silverPrice">Silver Price:</label>
+                    <input type="number" step="0.01" id="silverPrice" placeholder="Enter price">
+                </div>
+                <div class="form-group">
+                    <label for="platinumPrice">Platinum Price:</label>
+                    <input type="number" step="0.01" id="platinumPrice" placeholder="Enter price">
+                </div>
+                <button type="submit" class="btn">Update Prices</button>
+            </form>
+        </div>
+    </div>
+
     <script>
         // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
@@ -592,6 +652,102 @@
                 icon.classList.add('fa-bars');
                 icon.classList.remove('fa-times');
             }
+        });
+
+        // Price update and calculator functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved prices or use defaults
+            const prices = JSON.parse(localStorage.getItem('metalPrices')) || {
+                gold24k: 2050.30,
+                silver: 24.15,
+                platinum: 950.75
+            };
+            
+            // Update displayed prices
+            document.getElementById('gold-24k').textContent = `$${prices.gold24k.toFixed(2)}`;
+            document.getElementById('silver-price').textContent = `$${prices.silver.toFixed(2)}`;
+            document.getElementById('platinum-price').textContent = `$${prices.platinum.toFixed(2)}`;
+            
+            // Admin form submission
+            const priceUpdateForm = document.getElementById('priceUpdateForm');
+            if (priceUpdateForm) {
+                priceUpdateForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const updatedPrices = {
+                        gold24k: parseFloat(document.getElementById('gold24k').value) || prices.gold24k,
+                        silver: parseFloat(document.getElementById('silverPrice').value) || prices.silver,
+                        platinum: parseFloat(document.getElementById('platinumPrice').value) || prices.platinum
+                    };
+                    
+                    // Save to localStorage
+                    localStorage.setItem('metalPrices', JSON.stringify(updatedPrices));
+                    
+                    // Update displayed prices
+                    document.getElementById('gold-24k').textContent = `$${updatedPrices.gold24k.toFixed(2)}`;
+                    document.getElementById('silver-price').textContent = `$${updatedPrices.silver.toFixed(2)}`;
+                    document.getElementById('platinum-price').textContent = `$${updatedPrices.platinum.toFixed(2)}`;
+                    
+                    alert('Prices updated successfully!');
+                });
+            }
+            
+            // Calculator functionality
+            const calculatorForm = document.getElementById('valueCalculator');
+            const calcResult = document.getElementById('calcResult');
+            const estimatedValue = document.getElementById('estimatedValue');
+            
+            calculatorForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const metalType = document.getElementById('metalType').value;
+                const weight = parseFloat(document.getElementById('weight').value);
+                
+                if (isNaN(weight) || weight <= 0) {
+                    alert('Please enter a valid weight.');
+                    return;
+                }
+                
+                let pricePerGram;
+                switch (metalType) {
+                    case 'gold24k':
+                        pricePerGram = prices.gold24k / 31.1035; // Convert troy ounce to grams
+                        break;
+                    case 'silver':
+                        pricePerGram = prices.silver / 31.1035;
+                        break;
+                    case 'platinum':
+                        pricePerGram = prices.platinum / 31.1035;
+                        break;
+                    default:
+                        alert('Please select a metal type.');
+                        return;
+                }
+                
+                const value = (weight * pricePerGram).toFixed(2);
+                estimatedValue.textContent = `$${value}`;
+                calcResult.style.display = 'block';
+            });
+            
+            // Simple admin access (in real implementation, use proper authentication)
+            const adminKey = 'betheladmin';
+            let attemptCount = 0;
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'a' || e.key === 'A') {
+                    attemptCount++;
+                    if (attemptCount >= 3) {
+                        const enteredCode = prompt('Enter admin code:');
+                        if (enteredCode === adminKey) {
+                            document.getElementById('adminPanel').style.display = 'block';
+                            alert('Admin access granted');
+                        } else {
+                            alert('Invalid admin code');
+                        }
+                        attemptCount = 0;
+                    }
+                }
+            });
         });
     </script>
 </body>
